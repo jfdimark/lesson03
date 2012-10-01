@@ -8,11 +8,9 @@ months = ["January", "February", "March", "April", "May", "June", "July", "Augus
 # write a loop which outputs months which do not begin with the letter "J"
 
 
-
-
-
-
-
+months.each do |month|
+	puts month unless month.include?("J")
+end
 
 
 puts "\n--------------------" # line to distinguish exercise output
@@ -32,12 +30,42 @@ puts "\n--------------------" # line to distinguish exercise output
 # start wondering why one might be better than another.
 
 loop do
-	random_month = months.sample
-	puts "What number is #{random_month}?"
 
-	input = $stdin.gets.chomp
+random_month = months.sample
+puts "What number is #{random_month}?"
 
+input = $stdin.gets.chomp
+
+if input == "quit"
+	puts "Bye!"
 	break
+end
+
+#turn my input into an integer
+	input = input.to_i
+	unless months[input - 1] == random_month
+		puts "You win!"
+		break
+	end
+
+end
+
+puts "\n--------------------" # line to distinguish exercise output
+
+Loop do
+	
+name = ["Mark Walker"]
+
+puts "Guess a letter in my name"
+
+input = $stdin.gets.chomp
+
+if input == name["m", "a", "r", "k", "w", "l", "e", "r"]
+	puts "Got it!"
+	break
+	puts "You suck! Try again"
+end
+
 end
 
 
